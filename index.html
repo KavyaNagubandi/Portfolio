@@ -4,186 +4,557 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio</title>
+    <title>Kavya Nagubandi | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body{
-            position:relative;
-            background-color: beige;
+        :root {
+            --primary-color: #dc3545;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+        }
+        
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .skill-badge {
+            background-color: var(--primary-color);
+            color: white;
+            margin: 5px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 2px solid white;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .contact-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            text-align: center;
         }
     </style>
-    
 </head>
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
-    <nav class="navbar navbar-expand-sm navbar-nav-scroll position: fixed fixed-top bg-danger navbar-light">
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#about"><i class="fa fa-fw fa-home"></i>About</a>
-            <button type="button" 
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            class="navbar-toggler">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-user-circle me-2"></i>Kavya Nagubandi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!--<li class="nav-item">
-                        <a class="nav-link" href="#about"><i class="fa fa-fw fa-home"></i>About</a>
-                    </li>-->
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#Acadamics"><i class="fa fa-fw fa-th-list"></i>Acadamics</a>
-                        
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#Technical Skills"><i class="fa fa-fw fa-th-list"></i>Technical Skills</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
                     </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#projects"><i class="fa fa-fw fa-info"></i>Projects</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
                     </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#Achievements"><i class="fa fa-fw fa-info"></i>Achievements</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
                     </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#Contact-Me"><i class="fa fa-fw fas fa-address-card"></i>Contact Me</a>   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>   
                     </li>
                 </ul> 
             </div>
         </div>
     </nav>
     
-    <div class="container-fluid" id="about"><br>
-        <div class="row">
-            <div class="col-sm-9 mt-3">
-                <h1 class="display-2">Kavya Nagubandi</h1>                                                            
-                <h4>kavyanagubandi@gmail.com</h4>
-                <br>
-                <hr>
-                <h3><strong>Career Objective</strong></h3>
-                <p><br><em><big>To secure a challenging position in a growth-oriented organisation where I can enhance my skills and knowledge and so that become a valuable part of the organisation</big></em></p>
-            </div>
-            <div class="col-sm-3 mt-3">
-                <p class="text-end"><img src="Self pic.jpg" class="rounded-circle border border-danger border border-4" alt="ProfilePic" width="304" height="236"> </p>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Kavya Nagubandi</h1>
+                    <h4 class="text-muted mb-4">Computer Science Student | Aspiring Developer</h4>
+                    <p class="lead mb-4">Passionate about technology and innovation with a strong foundation in computer science principles and practical applications.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-danger btn-lg px-4">Contact Me</a>
+                        <a href="#projects" class="btn btn-outline-danger btn-lg px-4">View Projects</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center mt-5 mt-lg-0">
+                    <img src="Self pic.jpg" alt="Profile Picture" class="profile-img img-fluid">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid mt-3" id="Acadamics">
-        <h3 class="display-1" ><br>Acadamic Information</h3>
-        <br>
+    </section>
     
-    <div class="table-responsive">
-        <table class="table border-dark">
-            <thead>
-                <tr class="table-danger">
-                    <th>Course Details</th>
-                    <th>Institution</th>
-                    <th>University Board</th>
-                    <th>Year of passing</th>
-                    <th>CGPA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Bachelor of Technology(Computer Science)</td>
-                    <td>Keshav Memorial Institute of Technology</td>
-                    <td>JNTUH</td>
-                    <td>2025</td>
-                    <td>9.15</td>
-                </tr>
-                <tr>
-                    <td>Intermediate-MPC</td>
-                    <td>Narayana Junior College </td>
-                    <td>JNTUH</td>
-                    <td>2021</td>
-                    <td>98%</td>
-                </tr>
-                <tr>
-                    <td>Secondary School of Education</td>
-                    <td>SRM High School</td>
-                    <td>SSC</td>
-                    <td>2019</td>
-                    <td>10GPA</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    </div>
-    <div class="container-fluid mt-3" id="Technical Skills">
-        <h3 class="display-1"><br>TechSkills</h3>
-        <h3><strong>Programming Languages</strong></h3>
-        <ul class="list-styled">
-            <li>C</li>
-            <li>C++</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>Javascript</li>
-            <li>Data Structures and Algorithms</li>
-        </ul>
-        <h3><strong>Tools/Frameworks</strong></h3>
-        <ul class="list-styled">
-            <li>MySQL</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>TensorFlow</li>
-            <li>Keras</li>
-            <li>Streamlit</li>
-            <li>Neural Network Architecture</li>
-        </ul>
-        <h3><strong>Web Technologies</strong></h3>
-        <ul class="list-styled">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Bootstrap</li>
-            <li>MERN</li>
-        </ul>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0"><i class="fas fa-user me-2"></i>Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Email:</strong> kavyanagubandi@gmail.com</p>
+                            <p class="card-text"><strong>Phone:</strong> +91 9381514774</p>
+                            <p class="card-text"><strong>Location:</strong> Kodad, Suryapet District, Telangana</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0"><i class="fas fa-bullseye me-2"></i>Career Objective</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">To secure a challenging position in a growth-oriented organisation where I can enhance my skills and knowledge to become a valuable asset to the organisation. Passionate about leveraging technology to solve real-world problems and committed to continuous learning and professional development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Bachelor of Technology (Computer Science)</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Keshav Memorial Institute of Technology</h5>
+                            <p class="card-text">JNTUH University | 2021 - 2025</p>
+                            <p class="card-text"><strong>CGPA:</strong> 9.15</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Intermediate - MPC</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Narayana Junior College</h5>
+                            <p class="card-text">2019 - 2021</p>
+                            <p class="card-text"><strong>Percentage:</strong> 98%</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Secondary School of Education</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">SRM High School</h5>
+                            <p class="card-text">SSC Board | 2019</p>
+                            <p class="card-text"><strong>GPA:</strong> 10.0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-code me-2"></i>Programming Languages</h4>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">C</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Data Structures</span>
+                            <span class="skill-badge">Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-tools me-2"></i>Tools & Frameworks</h4>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">GitHub</span>
+                            <span class="skill-badge">TensorFlow</span>
+                            <span class="skill-badge">Keras</span>
+                            <span class="skill-badge">Streamlit</span>
+                            <span class="skill-badge">Neural Networks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-globe me-2"></i>Web Technologies</h4>
+                        </div>
+                        <div class="card-body">
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">CSS</span>
+                            <span class="skill-badge">Bootstrap</span>
+                            <span class="skill-badge">MERN Stack</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h4>Bhavishya Dwar</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-subtitle mb-2 text-muted">Placement Portal</h5>
+                            <p class="card-text">A Web Application that works as a Placement portal for jobs and internships with features for both students and recruiters.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>Technologies:</strong> HTML, CSS, Bootstrap, MERN Stack</li>
+                                <li class="list-group-item"><strong>Role:</strong> Frontend Development</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-outline-danger">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h4>Fruit Health Assessment Using AI</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-subtitle mb-2 text-muted">Computer Vision Project</h5>
+                            <p class="card-text">AI system to detect fruit health through image processing with steps: Capture Image → Preprocessing → Apply Algorithm → Detect Result.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>Technologies:</strong> TensorFlow, Keras, Neural Networks, Streamlit</li>
+                                <li class="list-group-item"><strong>Role:</strong> Full Development</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-outline-danger">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h4>3D VR Radiology</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-subtitle mb-2 text-muted">Medical Imaging Application</h5>
+                            <p class="card-text">Virtual Reality AI App for Organ Segmentation in 3D Medical Images with interactive visualization capabilities.</p>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>Technologies:</strong> Deep Learning, MERN, Unreal Engine, GPU Computing</li>
+                                <li class="list-group-item"><strong>Role:</strong> Deep Learning & Backend Development</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-outline-danger">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-certificate me-2"></i>NPTEL Certifications</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h5>Python for Data Science</h5>
+                                <p class="mb-1">IIT Madras | Silver Elite Certification</p>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h5>Data Structures & Algorithms in Java</h5>
+                                <p class="mb-1">IIT Kharagpur | Silver Elite Certification</p>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4><i class="fas fa-trophy me-2"></i>Other Achievements</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h5>Sololearn MySQL Certification</h5>
+                                <p>Completed Introduction to MySQL course with comprehensive understanding of database concepts.</p>
+                            </div>
+                            <div>
+                                <h5>National Science Olympiad (NSO)</h5>
+                                <p>Selected in 8th class among top performers in the national level science competition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card contact-card">
+                        <div class="card-header">
+                            <h4 class="text-center"><i class="fas fa-envelope me-2"></i>Get In Touch</h4>
+                        </div>
+                        <div class="card-body contact-info">
+                            <div class="mb-4">
+                                <i class="contact-icon fas fa-envelope"></i>
+                                <a href="mailto:kavyanagubandi@gmail.com" class="text-decoration-none h5">kavyanagubandi@gmail.com</a>
+                            </div>
+                            <div class="mb-4">
+                                <i class="contact-icon fas fa-phone"></i>
+                                <a href="tel:+919381514774" class="text-decoration-none h5">+91 9381514774</a>
+                            </div>
+                            <div class="mb-4">
+                                <i class="contact-icon fas fa-map-marker-alt"></i>
+                                <span class="h5">Kodad, Suryapet District, Telangana</span>
+                            </div>
+                            <div class="social-links mt-4">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 Kavya Nagubandi. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
         
-    </div>  
-    <div class="container-fluid mt-3" id="projects">
-        <h3 class="display-1"><br>Projects</h3>
-        <ul class="list-styled">
-            <li><B>Bhavishya Dwar<br></B>
-                A Web Application that works as a Placement portal for jobs and internships
-                Technologies Used: HTML, CSS, Bootstrap, MERN
-                My Role : Front End of Web Application
-            </li>
-            <li> <b>Assessment of Health of Fruits Using AI</b><br>
-                Detecting the fruit health according 1. Capture Image 2. Preprocessing 3. Apply Algorithm 4. Detect the image
-                Technologies Used: Deep Learning Framework TensorFlow and Keras, Neural Network Architecture, Streamlit</li>
-            <li><b>3D VR Radiology</b> <br>
-                Virtual Reality AI App for Organ Segmentation in 3D Medical Images
-                Technologies Used: Deep Learning Frameworks, MERN, Unreal , GPU
-                My Role: Worked on Deep Learning and MERN</li>
-        </ul>
-    </div>
-    <div class="container-fluid mt-3" id="Achievements">
-        <h3 class="display-1"><br>Achievements</h3>
-        <ul class="list-styled">
-            <li> <abbr title="National Programme on Technology Enhanced Learning"><b>NPTEL</b></abbr><br>
-                Successfully completed Python for Data Science course by IIT Madras.<br>
-                Certified a Silver Elite in the Course.<br>
-                Credited a certificate with Silver Elite in Data Structures and Algorithms Using Java course by IIT Kharagpur.
-            </li>
-            
-            
-            <li><b>Sololearn MySQL</b> <br>
-                 Credited a certificate on Introduction to MySQL,</li>
-            <li><abbr title="National Science Olympaid"><b>NSO</b></abbr> <br>
-                Selected in  8th class</li>
-
-                 
-        </ul>
-    </div>
-    <div class="container-fluid mt-3" id="Contact-Me">
-        <h3 class="display-3"><br>Contact Me</h3>
-        <p><strong>Email :</strong><em>kavyanagubandi@gmail.com</em></p>
-        <p><strong>Mobile Number :</strong><em>9381514774</em></p>
-        <p><strong>Permanent Address :</strong><em>H.no:10-137/2, Opposite of Subbarao Hospital, Huzurnagar road, Kodad, Suryapet District, Telangana</em></p>
-        <br> 
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-   <!--<button onclick="window.print()">Print this page</button>--> 
-
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
 </body>
+</html>
